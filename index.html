@@ -39,6 +39,7 @@
                   $(".cant_matriculados_rural").html( numeros[18].cant_matriculados_rural);
                   $(".cant_matriculados").html( numeros[18].cant_matriculados_rural + numeros[18].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[18].participacion_comunitaria);
+                  $(".gasto_mobiliario").html( numeros[18].gasto_mobiliario);
 
 
 
@@ -75,6 +76,10 @@
                   $(".cant_matriculados_rural").html( numeros[codigo].cant_matriculados_rural);
                   $(".cant_matriculados").html( numeros[codigo].cant_matriculados_rural + numeros[codigo].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[codigo].participacion_comunitaria);
+                  $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario);
+
+
+                  
 
 
 
@@ -144,30 +149,30 @@
         <div class="left txtC">
           Amoblamiento**
           <div class="num_tipo3">
-            <strong> 356</strong>Gs.
+            <strong class="gasto_mobiliario">-</strong>Gs.
           </div>
         </div>
 
         <div class="center txtC">
           Docentes***
           <div class="num_tipo3">
-            <strong class="gasto_docente">Gs. 356</strong>Gs.
+            <strong class="gasto_docente">-</strong>Gs.
           </div>
         </div>
 
         <div class="right txtC">
           Administrativos***
           <div class="num_tipo3">
-            <strong class="gasto_administrativo" >Gs. 356</strong>Gs.
+            <strong class="gasto_administrativo" >-</strong>Gs.
           </div>
         </div>
 
       </div>
       
       <div class="referencias mt20">
-        *Censo 2013<br>
-        **Monto anual<br>
-        ***Monto mensual, ultima actualización Noviembre 2014
+        *Proyeccion Censo 2013 <a href="http://www.dgeec.gov.py/sub_index/Pobreza/Proyeccion%20Densidad%20Tasa%202012.pdf">(DGEEC)</a><br>
+        **Activo en Mobiliarios 2014 <a href="https://mega.co.nz/#!10Y3BDgC!3IQr8etnRNkG02ReZ-OFjV6vXcQu-65KKj5_Rl--d8k">MEC</a> <br>
+        ***Gasto mensual, ultima actualización Octubre 2014. <a href="http://datos.mec.gov.py/data/nomina_administrativos">Nomima Administrativos</a> | <a href="http://datos.mec.gov.py/data/nomina_docentes">Nomima Docentes</a>
       </div>
 
     </div>

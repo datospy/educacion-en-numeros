@@ -1,6 +1,6 @@
 var numeros = [
   {
-    "Nombre_departamento":"Central",
+    "Nombre_departamento":"Asuncion",
     "codigo_departamento":0,
     "cant_instituciones":1429,
     "gasto_administrativo":31506408,
@@ -10,7 +10,8 @@ var numeros = [
     "cant_matriculados_rural":0,
     "tiene_internet":219,
     "participacion_comunitaria":149,
-    "poblacion":515587
+    "poblacion":515587,
+    "gasto_mobiliario":117850894039
   },
   {
     "Nombre_departamento":"Concepcion",
@@ -23,7 +24,8 @@ var numeros = [
     "cant_matriculados_rural":35000,
     "tiene_internet":24,
     "participacion_comunitaria":415,
-    "poblacion":189929
+    "poblacion":189929,
+    "gasto_mobiliario":6949290869
   },
   {
     "Nombre_departamento":"San Pedro",
@@ -36,7 +38,8 @@ var numeros = [
     "cant_matriculados_rural":86061,
     "tiene_internet":16,
     "participacion_comunitaria":1049,
-    "poblacion":360094
+    "poblacion":360094,
+    "gasto_mobiliario":10842747779
   },
   {
     "Nombre_departamento":"Cordillera",
@@ -49,7 +52,8 @@ var numeros = [
     "cant_matriculados_rural":35001,
     "tiene_internet":36,
     "participacion_comunitaria":381,
-    "poblacion":282981
+    "poblacion":282981,
+    "gasto_mobiliario":12262988868
   },
   {
     "Nombre_departamento":"Guaira",
@@ -62,7 +66,8 @@ var numeros = [
     "cant_matriculados_rural":25889,
     "tiene_internet":24,
     "participacion_comunitaria":326,
-    "poblacion":198032
+    "poblacion":198032,
+    "gasto_mobiliario":6050385103
   },
   {
     "Nombre_departamento":"Caaguazu",
@@ -75,7 +80,8 @@ var numeros = [
     "cant_matriculados_rural":73899,
     "tiene_internet":43,
     "participacion_comunitaria":789,
-    "poblacion":483048
+    "poblacion":483048,
+    "gasto_mobiliario":23177159666
   },
   {
     "Nombre_departamento":"Caazapa",
@@ -88,7 +94,8 @@ var numeros = [
     "cant_matriculados_rural":36432,
     "tiene_internet":12,
     "participacion_comunitaria":476,
-    "poblacion":151415
+    "poblacion":151415,
+    "gasto_mobiliario":4162880622
   },
   {
     "Nombre_departamento":"Itapua",
@@ -101,7 +108,8 @@ var numeros = [
     "cant_matriculados_rural":60671,
     "tiene_internet":50,
     "participacion_comunitaria":825,
-    "poblacion":545924
+    "poblacion":545924,
+    "gasto_mobiliario":18856513158
   },
   {
     "Nombre_departamento":"Misiones",
@@ -114,7 +122,8 @@ var numeros = [
     "cant_matriculados_rural":10924,
     "tiene_internet":14,
     "participacion_comunitaria":195,
-    "poblacion":118798
+    "poblacion":118798,
+    "gasto_mobiliario":6376211874
   },
   {
     "Nombre_departamento":"Paraguarí",
@@ -127,7 +136,8 @@ var numeros = [
     "cant_matriculados_rural":33740,
     "tiene_internet":24,
     "participacion_comunitaria":469,
-    "poblacion":239633
+    "poblacion":239633,
+    "gasto_mobiliario":5355177188
   },
   {
     "Nombre_departamento":"Alto Parana",
@@ -140,7 +150,8 @@ var numeros = [
     "cant_matriculados_rural":50448,
     "tiene_internet":77,
     "participacion_comunitaria":534,
-    "poblacion":785747
+    "poblacion":785747,
+    "gasto_mobiliario":12322807047
   },
   {
     "Nombre_departamento":"Central",
@@ -153,7 +164,8 @@ var numeros = [
     "cant_matriculados_rural":50288,
     "tiene_internet":271,
     "participacion_comunitaria":686,
-    "poblacion":2221180
+    "poblacion":2221180,
+    "gasto_mobiliario":27181764203
   },
   {
     "Nombre_departamento":"Ñeembucu",
@@ -166,7 +178,8 @@ var numeros = [
     "cant_matriculados_rural":4937,
     "tiene_internet":15,
     "participacion_comunitaria":186,
-    "poblacion":84123
+    "poblacion":84123,
+    "gasto_mobiliario":6070577890
   },
   {
     "Nombre_departamento":"Amambay",
@@ -179,7 +192,8 @@ var numeros = [
     "cant_matriculados_rural":7482,
     "tiene_internet":15,
     "participacion_comunitaria":144,
-    "poblacion":125611
+    "poblacion":125611,
+    "gasto_mobiliario":3795732996
   },
   {
     "Nombre_departamento":"Canindeyu",
@@ -192,7 +206,8 @@ var numeros = [
     "cant_matriculados_rural":35094,
     "tiene_internet":7,
     "participacion_comunitaria":461,
-    "poblacion":191447
+    "poblacion":191447,
+    "gasto_mobiliario":2884916465
   },
   {
     "Nombre_departamento":"Presidente Hayes",
@@ -205,7 +220,8 @@ var numeros = [
     "cant_matriculados_rural":17354,
     "tiene_internet":21,
     "participacion_comunitaria":164,
-    "poblacion":106826
+    "poblacion":106826,
+    "gasto_mobiliario":3169282699
   },
   {
     "Nombre_departamento":"Alto Paraguay",
@@ -218,7 +234,8 @@ var numeros = [
     "cant_matriculados_rural":9582,
     "tiene_internet":25,
     "participacion_comunitaria":76,
-    "poblacion":11151
+    "poblacion":11151,
+    "gasto_mobiliario":93202800
   },
   {
     "Nombre_departamento":"Boquerón",
@@ -231,7 +248,8 @@ var numeros = [
     "cant_matriculados_rural":2302,
     "tiene_internet":3,
     "participacion_comunitaria":20,
-    "poblacion":61107
+    "poblacion":61107,
+    "gasto_mobiliario":43641000
   },
   {
     "Nombre_departamento":"Paraguay",
@@ -244,6 +262,7 @@ var numeros = [
     "cant_matriculados_rural":575104,
     "tiene_internet":896,
     "participacion_comunitaria":7345,
-    "poblacion":6672633
+    "poblacion":6672633,
+    "gasto_mobiliario":267446174266
   }
 ]
