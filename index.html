@@ -10,26 +10,43 @@
   <script type="text/javascript" src="data.json"></script>
   <script type="text/javascript">
   $(document).ready(function() {
-      setTimeout(function() {
-          $("#suma1").hide();
-      },1000);
-      setTimeout(function() {
-          $("#monto1").delay(1000).show();
-          $("span").digits();
-           $("strong").digits();
-      },1000);
+      
 
       $.fn.digits = function(){ 
     return this.each(function(){ 
         $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
     })
 };
+var crecer = function() {
+              $('span').each(function() {
+              var $el = $(this);
+              var max = parseInt($el.text().replace(/\s/g, ''));
+              var duration = 100; // shared duration of all elements' animation
+              var refresh = 1;
+              var frames = duration / refresh; // number of frames (steps)
+              var start = 0;
+              var step = Math.max(Math.round(max / frames), 1); // step should be >= 1
+              var interval = window.setInterval(function() {
+                  if(start + step < max) {
+                      start += step;
+                  }
+                  else {
+                      start = max;
+                      clearInterval(interval);
+                  }
+                  $el.text(start);
+              }, refresh);
+
+
+          });
+  };
 
 
 
 
 
-      $(".poblacion").html( numeros[18].poblacion);
+
+                  $(".poblacion").html( numeros[18].poblacion);
                   $(".cant_instituciones").html( numeros[18].cant_instituciones);
                   $(".gasto_administrativo").html( numeros[18].gasto_administrativo);
                   $(".gasto_docente").html( numeros[18].gasto_docente);
@@ -40,6 +57,13 @@
                   $(".cant_matriculados").html( numeros[18].cant_matriculados_rural + numeros[18].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[18].participacion_comunitaria);
                   $(".gasto_mobiliario").html( numeros[18].gasto_mobiliario);
+                  crecer();
+
+                  $("span").digits();
+                  $("strong").digits();
+
+
+
 
 
 
@@ -50,6 +74,7 @@
   // console.log(id);
    
     $("#mapa").attr("src","images/"+id+".png");
+    $("#nombre_departamento").html($(this).attr('title'))
 }/*, function(){
 
   $("#mapa").attr("src","images/pais.png");
@@ -76,13 +101,10 @@
                   $(".cant_matriculados_rural").html( numeros[codigo].cant_matriculados_rural);
                   $(".cant_matriculados").html( numeros[codigo].cant_matriculados_rural + numeros[codigo].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[codigo].participacion_comunitaria);
-                  $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario);
+                  $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario);                
 
 
-                  
-
-
-
+                  crecer();
                 $("span").digits();
                  $("strong").digits();
 
@@ -108,14 +130,16 @@
   <p class="txtC">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
   <div class="clearfix">
 
+    <div class="departamento"> <strong> Departamentoy</strong> <span id="nombre_departamento"></span> </div>
+
     <div class="left mapa">
       <img src="images/pais.png" width="500" height="500" usemap="#departamentos" border="0" id="mapa"/>
       <map name="departamentos" id="departamentos">
         <area shape="poly" coords="70,58,54,86,34,176,76,231,107,251,124,267,128,257,141,249,161,247,169,229,170,209,185,186,200,173,201,170,172,165,172,130,183,125,174,86"  alt="Boquerón" title="Boquerón" id="boqueron" codigo="17"/>
         <area shape="poly" coords="72,54,176,86,184,122,174,133,174,161,256,172,274,182,274,135,276,125,278,103,270,72,262,42,214,15,172,13,78,31" alt="Alto Paraguay" title="Alto Paraguay" id="alto-paraguay" codigo="16"/>
-        <area shape="poly" coords="205,170,255,176,276,187,283,199,275,202,284,213,301,246,303,256,313,280,314,314,309,325,299,341,292,352,278,340,261,330,203,307,196,297,166,277,156,280,125,269,130,259,144,252,162,248,173,229,173,211,188,186" alt="Presidente Hayes" id="pte-hayes" codigo="15" />
+        <area shape="poly" coords="205,170,255,176,276,187,283,199,275,202,284,213,301,246,303,256,313,280,314,314,309,325,299,341,292,352,278,340,261,330,203,307,196,297,166,277,156,280,125,269,130,259,144,252,162,248,173,229,173,211,188,186" alt="Presidente Hayes" title="Presidente Hayes" id="pte-hayes" codigo="15" />
         <area shape="poly" coords="278,171,276,183,285,199,281,203,302,244,336,244,366,237,374,213,363,204,352,208,349,215,341,215,337,190,343,181,309,176"  alt="Concepción" title="Concepción" id="concepcion" codigo="1" />
-        <area shape="poly" coords="341,178,343,182,339,190,342,211,347,214,350,205,363,203,373,212,369,236,375,243,371,249,371,253,377,249,380,250,379,267,392,257,399,256,400,231,393,218,392,193,383,182,371,183,351,170"  alt="Amambay" id="Amambay" codigo="13" />
+        <area shape="poly" coords="341,178,343,182,339,190,342,211,347,214,350,205,363,203,373,212,369,236,375,243,371,249,371,253,377,249,380,250,379,267,392,257,399,256,400,231,393,218,392,193,383,182,371,183,351,170"  alt="Amambay"  title="Amambay" id="Amambay" codigo="13" />
         <area shape="poly" coords="304,248,314,278,316,315,311,328,318,336,340,326,349,334,357,329,361,329,364,322,368,329,382,320,369,293,376,279,376,252,368,252,371,244,366,239,338,248"  alt="San Pedro" title="San Pedro"  id="san-pedro" codigo="2" />
         <area shape="poly" coords="379,268,378,277,371,292,384,319,404,307,422,305,440,316,463,319,463,303,467,298,462,287,466,280,449,269,434,274,418,280,407,275,402,258"  alt="Canindeyú" title="Canindeyú" id="canindeyu" codigo="14"  />
         <area shape="poly" coords="292,352,301,342,312,361,305,373,299,393,289,382,293,372,298,364"  alt="Central" title="Central" id="central" codigo="11" />
@@ -132,7 +156,7 @@
     </div>
 
     <div class="right datos pt50">
-      <p><span class="num_tipo1"><span id="suma1"><img src="images/suma1.gif" alt=""></span><span id="monto1" class="monto poblacion" >93.000</span></span> Habitantes*</p>
+      <p><span class="num_tipo1 poblacion"> </span> Habitantes*</p>
       <p><span class="num_tipo1 cant_establecimiento"></span> Establecimientos escolares</p>
       <p><span class="num_tipo1 cant_instituciones">773</span> Instituciones educativas</p>
         <p class="subItem mb10"><span class="num_tipo2 tiene_internet">773</span> cuentan con Internet </p>
@@ -171,8 +195,10 @@
       
       <div class="referencias mt20">
         *Proyeccion Censo 2013 <a href="http://www.dgeec.gov.py/sub_index/Pobreza/Proyeccion%20Densidad%20Tasa%202012.pdf">(DGEEC)</a><br>
+        **Establecimientos educativos año 2014 
         **Activo en Mobiliarios 2014 <a href="https://mega.co.nz/#!10Y3BDgC!3IQr8etnRNkG02ReZ-OFjV6vXcQu-65KKj5_Rl--d8k">MEC</a> <br>
         ***Gasto mensual, ultima actualización Octubre 2014. <a href="http://datos.mec.gov.py/data/nomina_administrativos">Nomima Administrativos</a> | <a href="http://datos.mec.gov.py/data/nomina_docentes">Nomima Docentes</a>
+
       </div>
 
     </div>
