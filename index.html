@@ -7,6 +7,7 @@
 	<title></title>
 	<link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+  <script type="text/javascript" src="data.json"></script>
   <script type="text/javascript">
   $(document).ready(function() {
       setTimeout(function() {
@@ -14,7 +15,34 @@
       },1000);
       setTimeout(function() {
           $("#monto1").delay(1000).show();
+          $("span").digits();
+           $("strong").digits();
       },1000);
+
+      $.fn.digits = function(){ 
+    return this.each(function(){ 
+        $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
+    })
+};
+
+
+
+
+
+      $(".poblacion").html( numeros[18].poblacion);
+                  $(".cant_instituciones").html( numeros[18].cant_instituciones);
+                  $(".gasto_administrativo").html( numeros[18].gasto_administrativo);
+                  $(".gasto_docente").html( numeros[18].gasto_docente);
+                  $(".cant_establecimiento").html( numeros[18].cant_establecimiento);
+                  $(".cant_matriculados_urbana").html( numeros[18].cant_matriculados_urbana);
+                  $(".tiene_internet").html( numeros[18].tiene_internet);
+                  $(".cant_matriculados_rural").html( numeros[18].cant_matriculados_rural);
+                  $(".cant_matriculados").html( numeros[18].cant_matriculados_rural + numeros[18].cant_matriculados_urbana);
+                  $(".participacion_comunitaria").html( numeros[18].participacion_comunitaria);
+
+
+
+
 
       $('area').hover(function() {
    id= $(this)[0].id;
@@ -27,13 +55,35 @@
 }*/);
 
 
+
+
+
+
         $('area').click(function() {
-          event.preventDefault();
-   id= $(this)[0].id;
-   console.log(id);
-   
-    $("#mapa").attr("src","images/"+id+".png");
-});
+                  event.preventDefault();
+                  id= $(this)[0].id;
+                  console.log(id);
+                  $("#mapa").attr("src","images/"+id+".png");
+                  codigo = $(this).attr("codigo");
+                  $(".poblacion").html( numeros[codigo].poblacion);
+                  $(".cant_instituciones").html( numeros[codigo].cant_instituciones);
+                  $(".gasto_administrativo").html( numeros[codigo].gasto_administrativo);
+                  $(".gasto_docente").html( numeros[codigo].gasto_docente);
+                  $(".cant_establecimiento").html( numeros[codigo].cant_establecimiento);
+                  $(".cant_matriculados_urbana").html( numeros[codigo].cant_matriculados_urbana);
+                  $(".tiene_internet").html( numeros[codigo].tiene_internet);
+                  $(".cant_matriculados_rural").html( numeros[codigo].cant_matriculados_rural);
+                  $(".cant_matriculados").html( numeros[codigo].cant_matriculados_rural + numeros[codigo].cant_matriculados_urbana);
+                  $(".participacion_comunitaria").html( numeros[codigo].participacion_comunitaria);
+
+
+
+                $("span").digits();
+                 $("strong").digits();
+
+
+
+                  });
 
 
 
@@ -56,34 +106,34 @@
     <div class="left mapa">
       <img src="images/pais.png" width="500" height="500" usemap="#departamentos" border="0" id="mapa"/>
       <map name="departamentos" id="departamentos">
-        <area shape="poly" coords="70,58,54,86,34,176,76,231,107,251,124,267,128,257,141,249,161,247,169,229,170,209,185,186,200,173,201,170,172,165,172,130,183,125,174,86" href="#" alt="Boquerón" title="Boquerón" id="boqueron"/>
-        <area shape="poly" coords="72,54,176,86,184,122,174,133,174,161,256,172,274,182,274,135,276,125,278,103,270,72,262,42,214,15,172,13,78,31" href="#" alt="Alto Paraguay" title="Alto Paraguay" id="alto-paraguay"/>
-        <area shape="poly" coords="205,170,255,176,276,187,283,199,275,202,284,213,301,246,303,256,313,280,314,314,309,325,299,341,292,352,278,340,261,330,203,307,196,297,166,277,156,280,125,269,130,259,144,252,162,248,173,229,173,211,188,186" href="#" alt="Presidente Hayes" id="pte-hayes" />
-        <area shape="poly" coords="278,171,276,183,285,199,281,203,302,244,336,244,366,237,374,213,363,204,352,208,349,215,341,215,337,190,343,181,309,176" href="#" alt="Concepción" title="Concepción" id="concepcion" />
-        <area shape="poly" coords="341,178,343,182,339,190,342,211,347,214,350,205,363,203,373,212,369,236,375,243,371,249,371,253,377,249,380,250,379,267,392,257,399,256,400,231,393,218,392,193,383,182,371,183,351,170" href="#" alt="Amambay" id="Amambay" />
-        <area shape="poly" coords="304,248,314,278,316,315,311,328,318,336,340,326,349,334,357,329,361,329,364,322,368,329,382,320,369,293,376,279,376,252,368,252,371,244,366,239,338,248" href="#" alt="San Pedro" title="San Pedro"  id="san-pedro"/>
-        <area shape="poly" coords="379,268,378,277,371,292,384,319,404,307,422,305,440,316,463,319,463,303,467,298,462,287,466,280,449,269,434,274,418,280,407,275,402,258" href="#" alt="Canindeyú" title="Canindeyú" id="canindeyu" />
-        <area shape="poly" coords="292,352,301,342,312,361,305,373,299,393,289,382,293,372,298,364" href="#" alt="Central" title="Central" id="central" />
-        <area shape="poly" coords="303,339,309,329,317,338,340,328,351,338,345,354,334,365,333,370,328,368,327,361,315,362" href="#" alt="Cordillera" title="Cordillera" id="cordillera" />
-        <area shape="poly" coords="351,334,361,329,364,326,369,330,406,306,418,306,412,332,423,342,432,355,416,350,403,368,396,373,362,368,344,376,335,370,338,365,349,353" href="#" alt="Caaguazú" title="Caaguazú" id="caaguazu" />
-        <area shape="poly" coords="419,307,443,318,461,320,448,372,446,377,449,389,443,392,447,404,434,403,421,408,413,405,416,398,404,380,409,373,407,365,418,352,432,357,424,341,413,332" href="#" alt="Alto Paraná" title="Alto Paraná" id="alto-parana" />
-        <area shape="poly" coords="343,377,346,389,341,394,344,402,356,390,368,395,377,387,391,377,397,373,361,367" href="#" alt="Guairá" title="Guairá" id="guaira" />
-        <area shape="poly" coords="285,382,298,394,299,404,285,415,292,446,308,458,305,475,297,479,289,470,285,472,269,466,245,470,242,463,249,452,258,443,261,434,264,433,264,417,268,408,268,402,275,403,281,396" href="#" alt="Ñeembucú" title="Ñeembucú"  id="neembucu"  />
-        <area shape="poly" coords="287,418,304,430,319,418,331,426,331,431,337,431,345,439,346,456,342,464,340,471,320,479,307,476,312,456,296,445" href="#" alt="Misiones" title="Misiones"  id="misiones"  />
-        <area shape="poly" coords="289,416,302,426,321,414,330,423,341,405,339,395,343,389,342,378,332,372,326,369,324,362,315,362,305,372,300,392,301,405" href="#" alt="Paraguarí" title="Paraguarí" id="paraguari"  />
-        <area shape="poly" coords="334,423,340,430,348,438,363,434,381,418,397,410,411,398,405,385,401,376,406,369,395,380,378,387,371,399,356,393,346,405" href="#" alt="Caazapá" title="Caazapá"  id="caazapa"/>
-        <area shape="poly" coords="332,478,343,473,343,464,347,457,349,439,363,436,384,422,410,404,417,410,435,406,447,407,440,425,439,430,430,432,430,439,421,444,418,451,413,446,395,464,395,476,374,469,362,476,355,486,346,477,337,481" href="#" alt="Itapúa" title="Itapúa" id="itapua" />
+        <area shape="poly" coords="70,58,54,86,34,176,76,231,107,251,124,267,128,257,141,249,161,247,169,229,170,209,185,186,200,173,201,170,172,165,172,130,183,125,174,86"  alt="Boquerón" title="Boquerón" id="boqueron" codigo="17"/>
+        <area shape="poly" coords="72,54,176,86,184,122,174,133,174,161,256,172,274,182,274,135,276,125,278,103,270,72,262,42,214,15,172,13,78,31" alt="Alto Paraguay" title="Alto Paraguay" id="alto-paraguay" codigo="16"/>
+        <area shape="poly" coords="205,170,255,176,276,187,283,199,275,202,284,213,301,246,303,256,313,280,314,314,309,325,299,341,292,352,278,340,261,330,203,307,196,297,166,277,156,280,125,269,130,259,144,252,162,248,173,229,173,211,188,186" alt="Presidente Hayes" id="pte-hayes" codigo="15" />
+        <area shape="poly" coords="278,171,276,183,285,199,281,203,302,244,336,244,366,237,374,213,363,204,352,208,349,215,341,215,337,190,343,181,309,176"  alt="Concepción" title="Concepción" id="concepcion" codigo="1" />
+        <area shape="poly" coords="341,178,343,182,339,190,342,211,347,214,350,205,363,203,373,212,369,236,375,243,371,249,371,253,377,249,380,250,379,267,392,257,399,256,400,231,393,218,392,193,383,182,371,183,351,170"  alt="Amambay" id="Amambay" codigo="13" />
+        <area shape="poly" coords="304,248,314,278,316,315,311,328,318,336,340,326,349,334,357,329,361,329,364,322,368,329,382,320,369,293,376,279,376,252,368,252,371,244,366,239,338,248"  alt="San Pedro" title="San Pedro"  id="san-pedro" codigo="2" />
+        <area shape="poly" coords="379,268,378,277,371,292,384,319,404,307,422,305,440,316,463,319,463,303,467,298,462,287,466,280,449,269,434,274,418,280,407,275,402,258"  alt="Canindeyú" title="Canindeyú" id="canindeyu" codigo="14"  />
+        <area shape="poly" coords="292,352,301,342,312,361,305,373,299,393,289,382,293,372,298,364"  alt="Central" title="Central" id="central" codigo="11" />
+        <area shape="poly" coords="303,339,309,329,317,338,340,328,351,338,345,354,334,365,333,370,328,368,327,361,315,362"alt="Cordillera" title="Cordillera" id="cordillera"  codigo="3"/>
+        <area shape="poly" coords="351,334,361,329,364,326,369,330,406,306,418,306,412,332,423,342,432,355,416,350,403,368,396,373,362,368,344,376,335,370,338,365,349,353"  alt="Caaguazú" title="Caaguazú" id="caaguazu"  codigo="5" />
+        <area shape="poly" coords="419,307,443,318,461,320,448,372,446,377,449,389,443,392,447,404,434,403,421,408,413,405,416,398,404,380,409,373,407,365,418,352,432,357,424,341,413,332"  alt="Alto Paraná" title="Alto Paraná" id="alto-parana"  codigo="10"/>
+        <area shape="poly" coords="343,377,346,389,341,394,344,402,356,390,368,395,377,387,391,377,397,373,361,367"  alt="Guairá" title="Guairá" id="guaira" codigo="4"/>
+        <area shape="poly" coords="285,382,298,394,299,404,285,415,292,446,308,458,305,475,297,479,289,470,285,472,269,466,245,470,242,463,249,452,258,443,261,434,264,433,264,417,268,408,268,402,275,403,281,396" alt="Ñeembucú" title="Ñeembucú"  id="neembucu"  codigo="12" />
+        <area shape="poly" coords="287,418,304,430,319,418,331,426,331,431,337,431,345,439,346,456,342,464,340,471,320,479,307,476,312,456,296,445"  alt="Misiones" title="Misiones"  id="misiones"  codigo="8" />
+        <area shape="poly" coords="289,416,302,426,321,414,330,423,341,405,339,395,343,389,342,378,332,372,326,369,324,362,315,362,305,372,300,392,301,405"  alt="Paraguarí" title="Paraguarí" id="paraguari" codigo="9"  />
+        <area shape="poly" coords="334,423,340,430,348,438,363,434,381,418,397,410,411,398,405,385,401,376,406,369,395,380,378,387,371,399,356,393,346,405"  alt="Caazapá" title="Caazapá"  id="caazapa" codigo="6"/>
+        <area shape="poly" coords="332,478,343,473,343,464,347,457,349,439,363,436,384,422,410,404,417,410,435,406,447,407,440,425,439,430,430,432,430,439,421,444,418,451,413,446,395,464,395,476,374,469,362,476,355,486,346,477,337,481"  alt="Itapúa" title="Itapúa" id="itapua" codigo="7" />
       </map>
     </div>
 
     <div class="right datos pt50">
-      <p><span class="num_tipo1"><span id="suma1"><img src="images/suma1.gif" alt=""></span><span id="monto1" class="monto">93.000</span></span> Habitantes*</p>
-      <p><span class="num_tipo1">773</span> Establecimientos escolares</p>
-      <p><span class="num_tipo1">773</span> Instituciones educativas</p>
-        <p class="subItem mb10"><span class="num_tipo2">773</span> cuentan con Internet </p>
-        <p class="subItem"><span class="num_tipo2">773</span> cuentan con participación comunitaria</p>
-      <p><span class="num_tipo1">773</span> Alumnos</p>
-        <p class="subItem"><span class="num_tipo2">773</span> Rurales y <span class="num_tipo2">773</span> Urbanos</p>
+      <p><span class="num_tipo1"><span id="suma1"><img src="images/suma1.gif" alt=""></span><span id="monto1" class="monto poblacion" >93.000</span></span> Habitantes*</p>
+      <p><span class="num_tipo1 cant_establecimiento"></span> Establecimientos escolares</p>
+      <p><span class="num_tipo1 cant_instituciones">773</span> Instituciones educativas</p>
+        <p class="subItem mb10"><span class="num_tipo2 tiene_internet">773</span> cuentan con Internet </p>
+        <p class="subItem"><span class="num_tipo2 participacion_comunitaria">773</span> cuentan con participación comunitaria</p>
+      <p><span class="num_tipo1 cant_matriculados">773</span> Alumnos</p>
+        <p class="subItem"><span class="num_tipo2 cant_matriculados_rural ">773</span> Rurales y <span class="num_tipo2 cant_matriculados_urbana">773</span> Urbanos</p>
 
       <hr>
 
@@ -94,21 +144,21 @@
         <div class="left txtC">
           Amoblamiento**
           <div class="num_tipo3">
-            <strong>Gs. 356</strong>Millones
+            <strong> 356</strong>Gs.
           </div>
         </div>
 
         <div class="center txtC">
           Docentes***
           <div class="num_tipo3">
-            <strong>Gs. 356</strong>Millones
+            <strong class="gasto_docente">Gs. 356</strong>Gs.
           </div>
         </div>
 
         <div class="right txtC">
           Administrativos***
           <div class="num_tipo3">
-            <strong>Gs. 356</strong>Millones
+            <strong class="gasto_administrativo" >Gs. 356</strong>Gs.
           </div>
         </div>
 
