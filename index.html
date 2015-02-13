@@ -125,6 +125,7 @@ var crecer = function() {
                   $(".cant_matriculados").html( numeros[18].cant_matriculados_rural + numeros[18].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[18].participacion_comunitaria);
                   $(".gasto_mobiliario").html( numeros[18].gasto_mobiliario);
+                  $(".m0").text("");
                   $("#nombre_departamento").text("Paraguay");
                   crecer();
 
@@ -171,6 +172,7 @@ var crecer = function() {
                   $(".cant_matriculados").html( numeros[codigo].cant_matriculados_rural + numeros[codigo].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[codigo].participacion_comunitaria);
                   $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario); 
+                  $(".m0").text("Departamento");
                   $("#nombre_departamento").text($(this).attr('title'));               
 
 
