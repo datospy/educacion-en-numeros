@@ -34,7 +34,7 @@
     })
 };
 var crecer = function() {
-              $('span').each(function() {
+              $('.num_tipo2').each(function() {
               var $el = $(this);
               var max = parseInt($el.text().replace(/\s/g, ''));
               var duration = 100; // shared duration of all elements' animation
@@ -55,6 +55,58 @@ var crecer = function() {
 
 
           });
+
+               $('.num_tipo1').each(function() {
+              var $el = $(this);
+              var max = parseInt($el.text().replace(/\s/g, ''));
+              var duration = 100; // shared duration of all elements' animation
+              var refresh = 1;
+              var frames = duration / refresh; // number of frames (steps)
+              var start = 0;
+              var step = Math.max(Math.round(max / frames), 1); // step should be >= 1
+              var interval = window.setInterval(function() {
+                  if(start + step < max) {
+                      start += step;
+                  }
+                  else {
+                      start = max;
+                      clearInterval(interval);
+                  }
+                  $el.text(start);
+              }, refresh);
+
+
+          });
+
+
+                $('.num_tipo3 > strong').each(function() {
+              var $el = $(this);
+              var max = parseInt($el.text().replace(/\s/g, ''));
+              var duration = 100; // shared duration of all elements' animation
+              var refresh = 1;
+              var frames = duration / refresh; // number of frames (steps)
+              var start = 0;
+              var step = Math.max(Math.round(max / frames), 1); // step should be >= 1
+              var interval = window.setInterval(function() {
+                  if(start + step < max) {
+                      start += step;
+                  }
+                  else {
+                      start = max;
+                      clearInterval(interval);
+                  }
+                  $el.text(start);
+              }, refresh);
+
+
+          });
+
+                setTimeout(function(){   $("span").digits();
+                  $("strong").digits();},800)
+
+
+
+
   };
 
 
@@ -73,10 +125,10 @@ var crecer = function() {
                   $(".cant_matriculados").html( numeros[18].cant_matriculados_rural + numeros[18].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[18].participacion_comunitaria);
                   $(".gasto_mobiliario").html( numeros[18].gasto_mobiliario);
+                  $("#nombre_departamento").text("Paraguay");
                   crecer();
 
-                  $("span").digits();
-                  $("strong").digits();
+               
 
 
 
@@ -90,7 +142,7 @@ var crecer = function() {
   // console.log(id);
    
     $("#mapa").attr("src","images/"+id+".png");
-    $("#nombre_departamento").html($(this).attr('title'))
+   
 }/*, function(){
 
   $("#mapa").attr("src","images/pais.png");
@@ -103,6 +155,7 @@ var crecer = function() {
 
         $('area').click(function() {
                   event.preventDefault();
+
                   id= $(this)[0].id;
                   console.log(id);
                   $("#mapa").attr("src","images/"+id+".png");
@@ -117,12 +170,13 @@ var crecer = function() {
                   $(".cant_matriculados_rural").html( numeros[codigo].cant_matriculados_rural);
                   $(".cant_matriculados").html( numeros[codigo].cant_matriculados_rural + numeros[codigo].cant_matriculados_urbana);
                   $(".participacion_comunitaria").html( numeros[codigo].participacion_comunitaria);
-                  $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario);                
+                  $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario); 
+                  $("#nombre_departamento").text($(this).attr('title'));               
 
 
                   crecer();
-                $("span").digits();
-                 $("strong").digits();
+                
+                 
 
 
 
@@ -168,7 +222,7 @@ var crecer = function() {
         <area shape="poly" coords="334,423,340,430,348,438,363,434,381,418,397,410,411,398,405,385,401,376,406,369,395,380,378,387,371,399,356,393,346,405"  alt="Caazapá" title="Caazapá"  id="caazapa" codigo="6"/>
         <area shape="poly" coords="332,478,343,473,343,464,347,457,349,439,363,436,384,422,410,404,417,410,435,406,447,407,440,425,439,430,430,432,430,439,421,444,418,451,413,446,395,464,395,476,374,469,362,476,355,486,346,477,337,481"  alt="Itapúa" title="Itapúa" id="itapua" codigo="7" />
       </map>
-      <p class="txtR mr180"><a href="#" class="btn">Ver País</a></p>
+      <p class="txtR mr180"><a href="http://visualizaciones.datos.org.py/educacion-en-numeros/" class="btn">Ver País</a></p>
     </div>
 
     <div class="right datos">
@@ -191,23 +245,23 @@ var crecer = function() {
         <div class="num_tipo3">
             <strong class="gasto_mobiliario">-</strong> 
         </div>
-        Amoblamiento**
+        Amoblamiento**<br>
 
         <div class="num_tipo3">
           <strong class="gasto_docente">-</strong>
         </div>
-        Docentes***
+        Docentes*** <br>
 
         <div class="num_tipo3">
           <strong class="gasto_administrativo" >-</strong>
         </div>
-        Personal administrativo***
+        Personal administrativo***<br>
 
       </div>
       
       <div class="referencias mt20">
         *Proyeccion Censo 2013 <a href="http://www.dgeec.gov.py/sub_index/Pobreza/Proyeccion%20Densidad%20Tasa%202012.pdf">(DGEEC)</a><br>
-        **Establecimientos educativos año 2014 
+        **Establecimientos educativos año <a href="http://datos.mec.gov.py/data/establecimientos">2014</a> <br>
         **Activo en Mobiliarios 2014 <a href="https://mega.co.nz/#!10Y3BDgC!3IQr8etnRNkG02ReZ-OFjV6vXcQu-65KKj5_Rl--d8k">MEC</a> <br>
         ***Gasto mensual, ultima actualización Octubre 2014. <br><a href="http://datos.mec.gov.py/data/nomina_administrativos">Nomima Administrativos</a> | <a href="http://datos.mec.gov.py/data/nomina_docentes">Nomima Docentes</a>
 
