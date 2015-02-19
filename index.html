@@ -6,8 +6,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
-  <script type="text/javascript" src="data.json"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" ></script>
+
+  
+  <!-- Add maphilight plugin -->
+  <script type="text/javascript" src="js/jquery.maphilight.js"></script>
+  <!-- Activate maphilight plugin -->
+  <script type="text/javascript">
+      $(function() {
+          $('.map').maphilight();
+      });
+  </script>
+
+
+  <script type="text/javascript" src="data.js" ></script>
   <script type="text/javascript">
   $(document).ready(function() {
     
@@ -138,16 +150,16 @@ var crecer = function() {
 
 
 
-      $('area').hover(function() {
-   id= $(this)[0].id;
-  // console.log(id);
+//       $('area').hover(function() {
+//    id= $(this)[0].id;
+//   // console.log(id);
    
-    $("#mapa").attr("src","images/"+id+".png");
+//     $("#mapa").attr("src","images/"+id+".png");
    
-}/*, function(){
+// }/*, function(){
 
-  $("#mapa").attr("src","images/pais.png");
-}*/);
+//   $("#mapa").attr("src","images/pais.png");
+// }*/);
 
 
 
@@ -159,7 +171,7 @@ var crecer = function() {
 
                   id= $(this)[0].id;
                   console.log(id);
-                  $("#mapa").attr("src","images/"+id+".png");
+                  $(".map").css("background","url(images/"+id+".png)");
                   codigo = $(this).attr("codigo");
                   $(".poblacion").html( numeros[codigo].poblacion);
                   $(".cant_instituciones").html( numeros[codigo].cant_instituciones);
@@ -204,26 +216,26 @@ var crecer = function() {
 
 
     <div class="left mapa">
-      <img src="images/pais.png" width="500" height="500" usemap="#departamentos" border="0" id="mapa"/>
+      <img src="images/pais.png" width="500" height="500" usemap="#departamentos" border="0" class="map" id="mapa"/>
       <map name="departamentos" id="departamentos">
-        <area shape="poly" coords="70,58,54,86,34,176,76,231,107,251,124,267,128,257,141,249,161,247,169,229,170,209,185,186,200,173,201,170,172,165,172,130,183,125,174,86"  alt="Boquerón" title="Boquerón" id="boqueron" codigo="17"/>
-        <area shape="poly" coords="72,54,176,86,184,122,174,133,174,161,256,172,274,182,274,135,276,125,278,103,270,72,262,42,214,15,172,13,78,31" alt="Alto Paraguay" title="Alto Paraguay" id="alto-paraguay" codigo="16"/>
-        <area shape="poly" coords="205,170,255,176,276,187,283,199,275,202,284,213,301,246,303,256,313,280,314,314,309,325,299,341,292,352,278,340,261,330,203,307,196,297,166,277,156,280,125,269,130,259,144,252,162,248,173,229,173,211,188,186" alt="Presidente Hayes" title="Presidente Hayes" id="pte-hayes" codigo="15" />
-        <area shape="poly" coords="278,171,276,183,285,199,281,203,302,244,336,244,366,237,374,213,363,204,352,208,349,215,341,215,337,190,343,181,309,176"  alt="Concepción" title="Concepción" id="concepcion" codigo="1" />
-        <area shape="poly" coords="341,178,343,182,339,190,342,211,347,214,350,205,363,203,373,212,369,236,375,243,371,249,371,253,377,249,380,250,379,267,392,257,399,256,400,231,393,218,392,193,383,182,371,183,351,170"  alt="Amambay"  title="Amambay" id="amambay" codigo="13" />
-        <area shape="poly" coords="304,248,314,278,316,315,311,328,318,336,340,326,349,334,357,329,361,329,364,322,368,329,382,320,369,293,376,279,376,252,368,252,371,244,366,239,338,248"  alt="San Pedro" title="San Pedro"  id="san-pedro" codigo="2" />
-        <area shape="poly" coords="379,268,378,277,371,292,384,319,404,307,422,305,440,316,463,319,463,303,467,298,462,287,466,280,449,269,434,274,418,280,407,275,402,258"  alt="Canindeyú" title="Canindeyú" id="canindeyu" codigo="14"  />
-        <area shape="poly" coords="296,366,306,351,312,361,305,373,299,393,289,382,293,372,298,364"  alt="Central" title="Central" id="central" codigo="11" />
-        <area shape="poly" coords="303,339,309,329,317,338,340,328,351,338,345,354,334,365,333,370,328,368,327,361,315,362"alt="Cordillera" title="Cordillera" id="cordillera"  codigo="3"/>
-        <area shape="poly" coords="351,334,361,329,364,326,369,330,406,306,418,306,412,332,423,342,432,355,416,350,403,368,396,373,362,368,344,376,335,370,338,365,349,353"  alt="Caaguazú" title="Caaguazú" id="caaguazu"  codigo="5" />
-        <area shape="poly" coords="419,307,443,318,461,320,448,372,446,377,449,389,443,392,447,404,434,403,421,408,413,405,416,398,404,380,409,373,407,365,418,352,432,357,424,341,413,332"  alt="Alto Paraná" title="Alto Paraná" id="alto-parana"  codigo="10"/>
-        <area shape="poly" coords="343,377,346,389,341,394,344,402,356,390,368,395,377,387,391,377,397,373,361,367"  alt="Guairá" title="Guairá" id="guaira" codigo="4"/>
-        <area shape="poly" coords="285,382,298,394,299,404,285,415,292,446,308,458,305,475,297,479,289,470,285,472,269,466,245,470,242,463,249,452,258,443,261,434,264,433,264,417,268,408,268,402,275,403,281,396" alt="Ñeembucú" title="Ñeembucú"  id="neembucu"  codigo="12" />
-        <area shape="poly" coords="287,418,304,430,319,418,331,426,331,431,337,431,345,439,346,456,342,464,340,471,320,479,307,476,312,456,296,445"  alt="Misiones" title="Misiones"  id="misiones"  codigo="8" />
-        <area shape="poly" coords="289,416,302,426,321,414,330,423,341,405,339,395,343,389,342,378,332,372,326,369,324,362,315,362,305,372,300,392,301,405"  alt="Paraguarí" title="Paraguarí" id="paraguari" codigo="9"  />
-        <area shape="poly" coords="334,423,340,430,348,438,363,434,381,418,397,410,411,398,405,385,401,376,406,369,395,380,378,387,371,399,356,393,346,405"  alt="Caazapá" title="Caazapá"  id="caazapa" codigo="6"/>
-        <area shape="poly" coords="332,478,343,473,343,464,347,457,349,439,363,436,384,422,410,404,417,410,435,406,447,407,440,425,439,430,430,432,430,439,421,444,418,451,413,446,395,464,395,476,374,469,362,476,355,486,346,477,337,481"  alt="Itapúa" title="Itapúa" id="itapua" codigo="7" />
-        <area shape="poly" coords="283,354,295,368,304,352,299,344"  title="Asunción" id="asuncion" codigo="0">
+        <area shape="poly" coords="55,79,48,128,34,178,50,189,77,232,98,244,126,270,129,256,163,247,172,231,170,209,186,184,204,173,201,170,172,166,175,131,183,125,173,87,70,58"  alt="Boquerón" title="Boquerón" id="boqueron" codigo="17" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="70,56,175,84,186,125,175,136,175,165,256,172,275,182,275,141,279,110,272,78,263,63,264,40,214,13,172,13,78,31" alt="Alto Paraguay" title="Alto Paraguay" id="alto-paraguay" codigo="16" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="208,170,258,176,276,187,282,198,274,202,282,214,301,245,309,263,313,285,315,310,309,328,302,341,291,349,262,330,257,332,204,306,192,292,166,278,156,280,130,269,130,259,144,254,156,254,169,243,174,226,173,207,188,187" alt="Presidente Hayes" title="Presidente Hayes" id="pte-hayes" codigo="15" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="278,171,276,183,285,199,281,206,305,245,336,244,366,239,374,213,363,204,352,208,349,215,341,215,337,190,343,181,309,176"  alt="Concepción" title="Concepción" id="concepcion" codigo="1" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="345,179,349,184,342,191,344,210,347,214,350,205,363,200,377,210,369,236,375,243,371,249,371,253,377,249,383,248,379,267,392,257,399,256,400,231,393,218,392,193,385,181,371,183,351,170"  alt="Amambay"  title="Amambay" id="amambay" codigo="13" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="315,266,316,286,318,310,311,328,318,336,340,326,349,334,357,329,361,329,364,322,368,329,382,320,368,294,374,277,381,251,368,258,376,243,371,239,338,248,305,250"  alt="San Pedro" title="San Pedro"  id="san-pedro" codigo="2" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="379,268,378,277,371,292,384,319,404,307,422,305,440,316,463,319,463,303,467,298,462,287,466,280,449,269,434,274,418,280,407,275,402,258"  alt="Canindeyú" title="Canindeyú" id="canindeyu" codigo="14"  data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="296,346,303,342,313,362,305,373,299,393,289,382,297,361,302,352"  alt="Central" title="Central" id="central" codigo="11" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="306,342,311,333,317,338,342,331,351,338,345,354,334,365,333,370,328,368,327,361,315,362"alt="Cordillera" title="Cordillera" id="cordillera"  codigo="3" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="351,334,361,329,364,326,369,332,406,309,413,310,409,332,423,342,432,355,416,350,403,368,397,370,361,367,344,374,335,370,338,365,349,353"  alt="Caaguazú" title="Caaguazú" id="caaguazu"  codigo="5" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="418,307,443,320,461,323,448,372,446,377,449,389,443,392,448,406,434,404,421,408,413,405,419,397,404,380,409,373,407,365,418,352,436,357,424,341,413,332"  alt="Alto Paraná" title="Alto Paraná" id="alto-parana"  codigo="10" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="343,377,346,389,341,394,344,402,356,390,368,395,377,387,391,377,397,373,361,370"  alt="Guairá" title="Guairá" id="guaira" codigo="4" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="285,382,298,394,299,404,285,415,292,446,308,458,305,475,297,479,289,470,285,472,269,466,245,470,242,463,249,452,258,443,261,434,264,433,264,417,268,408,268,402,275,403,281,396" alt="Ñeembucú" title="Ñeembucú"  id="neembucu"  codigo="12" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="287,418,307,432,319,418,331,426,331,431,337,431,345,439,346,456,342,464,340,471,320,479,307,476,311,457,297,447"  alt="Misiones" title="Misiones"  id="misiones"  codigo="8" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="289,416,305,429,321,414,333,424,343,406,339,395,343,389,342,378,337,374,328,372,324,364,315,365,305,372,300,392,301,405"  alt="Paraguarí" title="Paraguarí" id="paraguari" codigo="9"  data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="334,423,340,430,348,438,363,434,381,420,397,410,411,398,405,385,401,379,406,369,391,381,380,389,371,399,356,393,346,405"  alt="Caazapá" title="Caazapá"  id="caazapa" codigo="6" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="poly" coords="332,478,343,473,346,466,350,457,349,441,366,438,384,422,410,404,417,411,435,409,445,409,440,425,439,430,430,432,430,439,421,444,418,451,413,446,399,462,395,479,374,469,362,476,356,489,346,477,337,481"  alt="Itapúa" title="Itapúa" id="itapua" codigo="7" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
+        <area shape="circle" coords="295,355,8"  title="Asunción" id="asuncion" codigo="0" data-maphilight='{"strokeOpacity":"0","fillColor":"000000","fillOpacity":0.3}'/>
       </map>
 
 <p class="txtR mr180"><a href="http://visualizaciones.datos.org.py/educacion-en-numeros/" class="btn">Ver País</a></p>
