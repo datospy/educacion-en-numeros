@@ -185,6 +185,7 @@ var crecer = function() {
                   $(".participacion_comunitaria").html( numeros[codigo].participacion_comunitaria);
                   $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario); 
                   $(".m0").text("Departamento");
+		if($(this).attr('title')=="Asunción"){$(".m0").text("");} 
                   $("#nombre_departamento").text($(this).attr('title'));               
 
 
@@ -246,7 +247,7 @@ var crecer = function() {
     </div>
 
     <div class="right datos">
-      <h5 class="m0">Departamento</h5>
+      <h5 class="m0" id="dep_titulo">Departamento</h5>
       <h2><span id="nombre_departamento"></span></h2>
       <p><span class="num_tipo1 poblacion"> </span> Habitantes*</p>
       <p><span class="num_tipo1 cant_establecimiento"></span> Establecimientos escolares</p>
@@ -283,7 +284,7 @@ var crecer = function() {
         *Proyección Censo 2013 <a href="http://www.dgeec.gov.py/sub_index/Pobreza/Proyeccion%20Densidad%20Tasa%202012.pdf">(DGEEC)</a><br>
         **Establecimientos educativos año <a href="http://datos.mec.gov.py/data/establecimientos">2014</a> <br>
         **Inventario de bienes - Mubles <a href="http://datos.mec.gov.py/">MEC</a> <br>
-        ***Gasto mensual, ultima actualización Octubre 2014. <br><a href="http://datos.mec.gov.py/data/nomina_administrativos">Nómima Administrativos</a> | <a href="http://datos.mec.gov.py/data/nomina_docentes">Nómima Docentes</a>
+        ***Gasto mensual, ultima actualización Octubre 2014. <br><a href="http://datos.mec.gov.py/data/nomina_administrativos">Nómina Administrativos</a> | <a href="http://datos.mec.gov.py/data/nomina_docentes">Nómina Docentes</a>
 
       </div>
 
