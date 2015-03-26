@@ -114,7 +114,7 @@ var crecer = function() {
           });
 
                 setTimeout(function(){   $("span").digits();
-                  $("strong").digits();},800)
+                  $("strong").digits();},1400)
 
 
 
@@ -130,6 +130,11 @@ var crecer = function() {
                   $(".cant_instituciones").html( numeros[18].cant_instituciones);
                   $(".gasto_administrativo").html( numeros[18].gasto_administrativo);
                   $(".gasto_docente").html( numeros[18].gasto_docente);
+
+                   //Parche hasta que se arregle lo de los montos
+               
+
+                 //fin del parche
                   $(".cant_establecimiento").html( numeros[18].cant_establecimiento);
                   $(".cant_matriculados_urbana").html( numeros[18].cant_matriculados_urbana);
                   $(".tiene_internet").html( numeros[18].tiene_internet);
@@ -150,18 +155,6 @@ var crecer = function() {
 
 
 
-//       $('area').hover(function() {
-//    id= $(this)[0].id;
-//   // console.log(id);
-   
-//     $("#mapa").attr("src","images/"+id+".png");
-   
-// }/*, function(){
-
-//   $("#mapa").attr("src","images/pais.png");
-// }*/);
-
-
 
 
 
@@ -175,8 +168,16 @@ var crecer = function() {
                   codigo = $(this).attr("codigo");
                   $(".poblacion").html( numeros[codigo].poblacion);
                   $(".cant_instituciones").html( numeros[codigo].cant_instituciones);
-                  $(".gasto_administrativo").html( numeros[codigo].gasto_administrativo);
-                  $(".gasto_docente").html( numeros[codigo].gasto_docente);
+                 // $(".gasto_administrativo").html( numeros[codigo].gasto_administrativo);
+                 // $(".gasto_docente").html( numeros[codigo].gasto_docente);
+
+                 //Parche hasta que se arregle lo de los montos
+                 $("h3").hide();
+                 $(".montos").hide();
+                 $(".datos").css("margin-top", "110px");
+                 $(".montosref").hide();
+
+                 //fin del parche
                   $(".cant_establecimiento").html( numeros[codigo].cant_establecimiento);
                   $(".cant_matriculados_urbana").html( numeros[codigo].cant_matriculados_urbana);
                   $(".tiene_internet").html( numeros[codigo].tiene_internet);
@@ -185,6 +186,8 @@ var crecer = function() {
                   $(".participacion_comunitaria").html( numeros[codigo].participacion_comunitaria);
                   $(".gasto_mobiliario").html( numeros[codigo].gasto_mobiliario); 
                   $(".m0").text("Departamento");
+
+
 		if($(this).attr('title')=="Asunción"){$(".m0").text("");} 
                   $("#nombre_departamento").text($(this).attr('title'));               
 
@@ -250,11 +253,11 @@ var crecer = function() {
       <h5 class="m0" id="dep_titulo">Departamento</h5>
       <h2><span id="nombre_departamento"></span></h2>
       <p><span class="num_tipo1 poblacion"> </span> Habitantes*</p>
-      <p><span class="num_tipo1 cant_establecimiento"></span> Establecimientos escolares</p>
-      <p><span class="num_tipo1 cant_instituciones">773</span> Instituciones educativas</p>
+      <p><span class="num_tipo1 cant_establecimiento"></span> Establecimientos educativos**</p>
+      <p><span class="num_tipo1 cant_instituciones">773</span> Instituciones educativas ***</p>
         <p class="subItem mb10"><span class="num_tipo2 tiene_internet">773</span> cuentan con Internet </p>
         <p class="subItem"><span class="num_tipo2 participacion_comunitaria">773</span> cuentan con participación comunitaria</p>
-      <p><span class="num_tipo1 cant_matriculados">773</span> Estudiantes</p>
+      <p><span class="num_tipo1 cant_matriculados"></span> Estudiantes</p>
         <p class="subItem"><span class="num_tipo2 cant_matriculados_rural ">773</span> Rurales y <span class="num_tipo2 cant_matriculados_urbana">773</span> Urbanos</p>
 
       <hr>
@@ -266,25 +269,46 @@ var crecer = function() {
         <div class="num_tipo3">
             <strong class="gasto_mobiliario">-</strong> 
         </div>
-        Activo acumulado en muebles**<br>
+        Activo acumulado en muebles****<br>
 
         <div class="num_tipo3">
           <strong class="gasto_docente">-</strong>
         </div>
-        Salario mensual Docentes*** <br>
+        Sueldo mensual Docentes***** <br>
 
         <div class="num_tipo3">
           <strong class="gasto_administrativo" >-</strong>
         </div>
-        Salario mensual Personal administrativo***<br>
+        Sueldo mensual personal administrativo******<br>
 
       </div>
       
       <div class="referencias mt20">
         *Proyección Censo 2013 <a href="http://www.dgeec.gov.py/sub_index/Pobreza/Proyeccion%20Densidad%20Tasa%202012.pdf">(DGEEC)</a><br>
         **Establecimientos educativos año <a href="http://datos.mec.gov.py/data/establecimientos">2014</a> <br>
-        **Inventario de bienes - Mubles <a href="http://datos.mec.gov.py/">MEC</a> <br>
-        ***Gasto mensual, ultima actualización Octubre 2014. <br><a href="http://datos.mec.gov.py/data/nomina_administrativos">Nómina Administrativos</a> | <a href="http://datos.mec.gov.py/data/nomina_docentes">Nómina Docentes</a>
+        **Insituciones educativas año <a href="http://datos.mec.gov.py/data/instituciones">2014</a> <br>
+
+
+
+        <span class="montosref">
+        ****Inventario de bienes - Muebles <a href="http://datos.mec.gov.py/">MEC</a> <br><br>
+        
+       
+
+        </span>
+
+        <span class="montosref">
+
+            *****Gasto mensual en sueldos (incluídos los montos por subsidios y bonificaciones), última actualización Noviembre 2014. <br><a href="http://datos.mec.gov.py/data/nomina_administrativos">Nómina Administrativos</a> <br><br>
+
+        </span>
+
+        <span class="montosref">
+
+           *****Gasto mensual en sueldos (incluídos los montos por subsidios y bonificaciones), última actualización Noviembre 2014.  <a href="http://datos.mec.gov.py/data/nomina_docentes">Nómina Docentes</a> 
+
+        </span>
+       
 
       </div>
 
@@ -314,7 +338,15 @@ var crecer = function() {
 </div>
 
 
-<style type="text/css"> .escondido {display: none;}</style>
+<style type="text/css"> .escondido {display: none;}
+
+span.montosref {
+  display: block;
+}
+
+</style>
+<img src="images/concepcion.png" class="escondido">
+
 <img src="images/san-pedro.png" class="escondido">
 <img src="images/amambay.png" class="escondido">
 <img src="images/asuncion.png" class="escondido">
